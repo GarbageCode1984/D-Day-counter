@@ -21,11 +21,13 @@ const counterMaker = () => {
     if (remaining <= 0) {
         messageContainer.innerHTML = "<h3>타이머가 종료됐습니다.</h3>";
         messageContainer.style.display = "flex";
+        setClearInterval();
         return;
     } else if (isNaN(remaining)) {
         container.style.display = "none";
         messageContainer.innerHTML = "<h3>유효한 날짜가 아닙니다.</h3>";
         messageContainer.style.display = "flex";
+        setClearInterval();
         return;
     }
 
@@ -46,9 +48,19 @@ const counterMaker = () => {
     }
 };
 
+const intervalIdArr = [];
 const starter = () => {
     container.style.display = "flex";
     messageContainer.style.display = "none";
     counterMaker();
-    setInterval(counterMaker, 1000);
+    const intervalId = setInterval(counterMaker, 1000);
+    intervalIdArr.push(intervalId);
+};
+
+const setClearInterval = () => {
+    container.style.display = "none";
+    messageContainer.style.display = "flex";
+    for (let i = 0; i < intervalIdArr.length; i++) {
+        clearInterval(intervalIdArr[i]);
+    }
 };
