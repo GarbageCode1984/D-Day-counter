@@ -29,6 +29,7 @@ h1 {
     font-size: 1.3rem;
     font-family: "bitbit";
     margin-top: 0.5rem;
+    cursor: pointer;
 }
 
 #d-day-container {
@@ -45,6 +46,10 @@ h1 {
 .d-day-child-container span {
     font-size: 1.3rem;
 }
-.target-selector {
+#target-selector {
     margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+#target-selector input {
+    text-align: right;
 }
