@@ -77,7 +77,6 @@ const starter = (targetDateInput) => {
 };
 
 const setClearInterval = () => {
-    localStorage.removeItem("saved-date");
     for (let i = 0; i < intervalIdArr.length; i++) {
         clearInterval(intervalIdArr[i]);
     }
@@ -87,6 +86,7 @@ const resetTimer = () => {
     container.style.display = "none";
     messageContainer.innerHTML = "<h3>D-Day를 입력해주세요.</h3>";
     messageContainer.style.display = "flex";
+    localStorage.removeItem("saved-date");
     setClearInterval();
 };
 
